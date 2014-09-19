@@ -119,9 +119,6 @@ class HipChat extends Adapter
         # Save users to brain
         for user in users
           user.id = @userIdFromJid user.jid
-          # userForId will not overwrite an existing user
-          if user.id of @robot.brain.data.users
-            delete @robot.brain.data.users[user.id]
           @robot.brain.userForId user.id, user
 
       joinRoom = (jid) =>
